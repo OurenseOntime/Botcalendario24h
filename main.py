@@ -101,7 +101,7 @@ async def recordatorio_eventos():
         recordatorio_fecha = fecha_evento - timedelta(days=evento["recordatorio"])
         if recordatorio_fecha.date() == hoy.date() and recordatorio_fecha.hour == hoy.hour:
             await canal.send(
-                f"⏰ **Recordatorio:** "{evento['nombre']}" es el {evento['fecha']} a las {evento['hora']} en {evento['lugar']}"
+                f"⏰ **Recordatorio:** {evento['nombre']} es el {evento['fecha']} a las {evento['hora']} en {evento['lugar']}"
             )
 
 @tasks.loop(hours=24)
