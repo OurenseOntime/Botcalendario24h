@@ -17,7 +17,11 @@ GUILD_ID = int(os.getenv("GUILD_ID", "0"))
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
-
+@client.event
+async def on_ready():
+    await tree.sync(guild=discord.Object(id=GUILD_ID))  # 👈 Sincroniza solo tu servidor
+    print(f"✅ Bot conectado como {client.user}")
+    
 # ✅ Evento cuando el bot está listo
 @client.event
 async def on_ready():
