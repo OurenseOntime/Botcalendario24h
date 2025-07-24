@@ -10,10 +10,13 @@ import asyncio
 load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
-CANAL_ID = int(os.getenv("CANAL_ID", "0"))  # Agrega esta variable de entorno en Render
-canal = client.get_channel(CANAL_ID)
-if canal:
-    await canal.send("Mensaje aquí")
+@client.event
+async def on_ready():
+    await tree.sync(guild=discord.Object(id=GUILD_ID))
+    canal = client.get_channel(CANAL_ID)
+    if canal:
+        await canal.send("🤖 Bot activo y sincronizado.")
+    print(f"✅ Bot conectado como {client.user}")
     
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
