@@ -11,7 +11,10 @@ load_dotenv()
 
 TOKEN = os.getenv("TOKEN")
 CANAL_ID = int(os.getenv("CANAL_ID", "0"))  # Agrega esta variable de entorno en Render
-
+canal = client.get_channel(CANAL_ID)
+if canal:
+    await canal.send("Mensaje aquí")
+    
 intents = discord.Intents.default()
 client = discord.Client(intents=intents)
 tree = app_commands.CommandTree(client)
