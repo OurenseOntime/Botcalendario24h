@@ -7,9 +7,18 @@ from keep_alive import keep_alive
 from datetime import datetime, timedelta
 import asyncio
 
+# 🔐 Cargar variables de entorno
 load_dotenv()
-
 TOKEN = os.getenv("TOKEN")
+CANAL_ID = int(os.getenv("CANAL_ID", "0"))
+GUILD_ID = int(os.getenv("GUILD_ID", "0"))
+
+# ⚙️ Configurar intents y bot
+intents = discord.Intents.default()
+client = discord.Client(intents=intents)
+tree = app_commands.CommandTree(client)
+
+# ✅ Evento cuando el bot está listo
 @client.event
 async def on_ready():
     await tree.sync(guild=discord.Object(id=GUILD_ID))
@@ -17,11 +26,8 @@ async def on_ready():
     if canal:
         await canal.send("🤖 Bot activo y sincronizado.")
     print(f"✅ Bot conectado como {client.user}")
-    
-intents = discord.Intents.default()
-client = discord.Client(intents=intents)
-tree = app_commands.CommandTree(client)
 
+# 🗂️ Variables iniciales para eventos
 eventos = []
 id_counter = 1
 
