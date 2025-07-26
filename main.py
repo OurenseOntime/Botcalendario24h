@@ -12,7 +12,7 @@ from threading import Thread
 from keep_alive import keep_alive
 
 # Configuración del bot
-TOKEN = os.getenv('DISCORD_BOT_TOKEN', '')
+TOKEN = os.getenv('TOKEN', '')
 GUILD_ID = 1397541016319295600  # Tu servidor específico
 CHANNEL_ID = 1397620205588316200  # Canal específico donde enviar recordatorios
 
