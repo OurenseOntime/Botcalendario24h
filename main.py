@@ -261,11 +261,12 @@ async def modificar_evento(interaction: discord.Interaction, id: int, campo: str
 @app_commands.describe(id="ID del evento a eliminar")
 async def eliminar_evento(interaction: discord.Interaction, id: int):
     try:
+        await interaction.response.defer(ephemeral=True)  # ✅ Reservamos la interacción
 
         # Verificar si el evento existe antes de eliminar
         response = supabase.table("eventos").select("*").eq("id", id).execute()
         if not response.data:
-            await interaction.response.send_message("❌ Evento no encontrado", ephemeral=True)
+            await interaction.followup.send("❌ Evento no encontrado")
             return
 
         evento_eliminado = response.data[0]
@@ -274,7 +275,7 @@ async def eliminar_evento(interaction: discord.Interaction, id: int):
         delete_response = supabase.table("eventos").delete().eq("id", id).execute()
 
         if delete_response.data == []:
-            await interaction.response.send_message("❌ Error al eliminar el evento de la base de datos.", ephemeral=True)
+            await interaction.followup.send("❌ Error al eliminar el evento de la base de datos.")
             return
 
         embed = discord.Embed(
@@ -284,18 +285,22 @@ async def eliminar_evento(interaction: discord.Interaction, id: int):
         )
 
         if interaction.channel.id != CHANNEL_ID:
-            await interaction.response.send_message("🗑️ Evento eliminado (respuesta enviada al canal principal)", ephemeral=True)
+            await interaction.followup.send("🗑️ Evento eliminado (respuesta enviada al canal principal)")
             canal = client.get_channel(CHANNEL_ID)
             if canal:
                 await canal.send(embed=embed)
         else:
-            await interaction.response.send_message(embed=embed)
+            await interaction.followup.send(embed=embed)
 
         logger.info(f"Evento eliminado: {evento_eliminado['nombre']} - ID {id}")
 
     except Exception as e:
         logger.error(f"Error eliminando evento: {e}")
-        await interaction.response.send_message("❌ Error al eliminar el evento.", ephemeral=True)
+        try:
+            await interaction.followup.send("❌ Error al eliminar el evento.")
+        except:
+            pass  # Silenciar si ya fue respondido
+
 
         
 @tree.command(name="listar_eventos", description="Muestra todos los eventos próximos", guild=guild_obj)

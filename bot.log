@@ -548,3 +548,38 @@ discord.ext.commands.errors.CommandNotFound: Command "mes" is not found
 2025-07-28 20:08:14,182 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-08-04&fecha=lte.2025-08-10&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
 2025-07-28 20:08:36,290 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-08-11&fecha=lte.2025-08-17&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
 2025-07-28 20:09:04,336 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-01&fecha=lt.2025-08-01&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 20:30:05,417 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:30:05,420 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:30:05,420 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:30:05,421 - discord.client - INFO - logging in using static token
+2025-07-28 20:30:05,431 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:30:05,431 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:30:06,338 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 6b6f3e97d9c3cbb2eb2a66ce59bcf341).
+2025-07-28 20:30:08,352 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:30:08,352 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:30:08,558 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 20:30:09,221 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 20:30:09,223 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 20:30:22,960 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&id=eq.7 "HTTP/2 200 OK"
+2025-07-28 20:30:23,127 - __main__ - ERROR - Error eliminando evento: 404 Not Found (error code: 10062): Unknown interaction
+2025-07-28 20:32:36,819 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:32:36,820 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:32:36,821 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:32:36,821 - discord.client - INFO - logging in using static token
+2025-07-28 20:32:36,830 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:32:36,830 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:32:37,974 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: a04f6ed40d120659a64facb7836654f9).
+2025-07-28 20:32:39,978 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:32:39,978 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:32:40,163 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 20:32:40,829 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 20:32:40,831 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 20:32:47,152 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&id=eq.8 "HTTP/2 200 OK"
+2025-07-28 20:32:47,262 - httpx - INFO - HTTP Request: DELETE https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?id=eq.8 "HTTP/2 200 OK"
+2025-07-28 20:32:47,990 - __main__ - INFO - Evento eliminado: entrenamiento - ID 8
