@@ -326,7 +326,13 @@ async def listar_eventos(interaction: discord.Interaction):
         )
 
         for e in eventos[:10]:  # Limitar a 10 para evitar límite de caracteres
-            evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M:%S")
+            try:
+                evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M:%S")
+            except ValueError:
+                evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M")
+            # Si tus horas están en UTC en la base de datos, usa la siguiente línea:
+            # evento_time = evento_time.replace(tzinfo=ZoneInfo("UTC")).astimezone(ZoneInfo("Europe/Madrid"))
+            # Si ya están en hora de Madrid, solo:
             evento_time = evento_time.replace(tzinfo=ZoneInfo("Europe/Madrid"))
             timestamp = int(evento_time.timestamp())
 
@@ -344,7 +350,6 @@ async def listar_eventos(interaction: discord.Interaction):
             await interaction.response.send_message("📋 Lista de eventos enviada al canal principal", ephemeral=True)
             canal = client.get_channel(CHANNEL_ID)
             if canal:
-                logger.error(f"Encontrado canal con ID {CHANNEL_ID}")
                 await canal.send(embed=embed)
         else:
             await interaction.response.send_message(embed=embed)
@@ -353,7 +358,13 @@ async def listar_eventos(interaction: discord.Interaction):
 
     except Exception as e:
         logger.error(f"Error listando eventos: {e}")
-        await interaction.response.send_message("❌ Error al listar eventos.", ephemeral=True)
+        try:
+            if not interaction.response.is_done():
+                await interaction.response.send_message("❌ Error al listar eventos.", ephemeral=True)
+            else:
+                await interaction.followup.send("❌ Error al listar eventos.", ephemeral=True)
+        except Exception:
+            pass
         
         
 @tree.command(name="semana", description="Muestra los eventos de una semana específica", guild=guild_obj)

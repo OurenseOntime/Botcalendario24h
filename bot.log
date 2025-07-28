@@ -583,3 +583,77 @@ discord.ext.commands.errors.CommandNotFound: Command "mes" is not found
 2025-07-28 20:32:47,152 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&id=eq.8 "HTTP/2 200 OK"
 2025-07-28 20:32:47,262 - httpx - INFO - HTTP Request: DELETE https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?id=eq.8 "HTTP/2 200 OK"
 2025-07-28 20:32:47,990 - __main__ - INFO - Evento eliminado: entrenamiento - ID 8
+2025-07-28 20:47:53,534 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:47:53,536 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:47:53,536 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:47:53,537 - discord.client - INFO - logging in using static token
+2025-07-28 20:47:53,549 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:47:53,549 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:47:54,414 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 9cc0cfb7e3fdd18d2f6c946855b18ac3).
+2025-07-28 20:47:56,428 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:47:56,428 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:47:56,692 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 20:47:57,244 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 20:47:57,245 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 20:47:57,247 - __main__ - ERROR - Error en resumen semanal: 'No time zone found with key Europe/Madrid'
+2025-07-28 20:49:07,746 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:49:07,747 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:49:07,748 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:49:07,749 - discord.client - INFO - logging in using static token
+2025-07-28 20:49:07,759 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:49:07,759 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:49:08,598 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 1a4f2e1e7cf762b16f746df14cda76ea).
+2025-07-28 20:49:10,637 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:49:10,637 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:49:28,487 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:49:28,489 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:49:28,490 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:49:28,491 - discord.client - INFO - logging in using static token
+2025-07-28 20:49:28,500 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:49:28,500 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:49:29,574 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: e996175e741058995a625efbf55cadeb).
+2025-07-28 20:49:31,587 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:49:31,587 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:49:59,182 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:49:59,184 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:49:59,185 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:49:59,185 - discord.client - INFO - logging in using static token
+2025-07-28 20:49:59,194 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:49:59,194 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:50:00,228 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 0c1c6577906188b7a489f63b508820a0).
+2025-07-28 20:50:02,229 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:50:02,229 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:50:30,602 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 20:50:30,813 - __main__ - ERROR - Error listando eventos: 400 Bad Request (error code: 40060): Interaction has already been acknowledged.
+2025-07-28 20:50:41,942 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 20:50:42,129 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 20:50:42,130 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 20:52:38,832 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:52:38,833 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:52:38,833 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:52:38,835 - discord.client - INFO - logging in using static token
+2025-07-28 20:52:38,844 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:52:38,844 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:52:39,947 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 181e98ceca10f138dddbd6c6e62f6db3).
+2025-07-28 20:52:41,960 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:52:41,960 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:52:42,139 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 20:52:42,756 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 20:52:42,759 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 20:52:47,673 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 20:52:47,996 - __main__ - INFO - Lista de eventos enviada
