@@ -1,20 +1,37 @@
 import discord
-from discord.ext import tasks, commands
-from discord import app_commands
 import asyncio
 import json
-from datetime import datetime, timedelta
 import re
 import os
 import logging
 import sys
 from threading import Thread
 from keep_alive import keep_alive
+from discord.ext import tasks, commands
+from discord import app_commands
+from datetime import datetime, timedelta
+from supabase import create_client, Client
 
-# Configuración del bot
-TOKEN = os.getenv('TOKEN', '')
-GUILD_ID = 1397541016319295600  # Tu servidor específico
-CHANNEL_ID = 1397620205588316200  # Canal específico donde enviar recordatorios
+
+from dotenv import load_dotenv
+load_dotenv()
+
+
+# Cargar variables de entorno
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+TOKEN = os.getenv("TOKEN")
+CHANNEL_ID = int(os.getenv("CHANNEL_ID"))
+GUILD_ID = int(os.getenv("GUILD_ID"))
+
+
+
+
+if not SUPABASE_URL or not SUPABASE_KEY:
+    raise ValueError("SUPABASE_URL y SUPABASE_KEY son requeridos")
+
+
+supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Configure logging
 logging.basicConfig(
@@ -34,27 +51,31 @@ intents.message_content = True
 client = commands.Bot(command_prefix="/", intents=intents)
 tree = client.tree
 
-EVENT_FILE = "eventos.json"
-
+    
 def cargar_eventos():
-    if not os.path.exists(EVENT_FILE):
-        return []
     try:
-        with open(EVENT_FILE, "r", encoding="utf-8") as f:
-            return json.load(f)
+        response = supabase.table("eventos").select("*").execute()
+        return response.data if response.data else []
     except Exception as e:
-        logger.error(f"Error cargando eventos: {e}")
+        logger.error(f"Error cargando eventos desde Supabase: {e}")
         return []
 
-def guardar_eventos(eventos):
+def guardar_evento(evento):
     try:
-        with open(EVENT_FILE, "w", encoding="utf-8") as f:
-            json.dump(eventos, f, indent=4, ensure_ascii=False)
+        response = supabase.table("eventos").insert(evento).execute()
+        return response.data[0] if response.data else None
     except Exception as e:
-        logger.error(f"Error guardando eventos: {e}")
-
-def generar_id(eventos):
-    return max((e["id"] for e in eventos), default=0) + 1
+        logger.error(f"Error guardando evento en Supabase: {e}")
+        return None
+    
+def actualizar_evento(id, campo, valor):
+    try:
+        data = {campo: valor}
+        response = supabase.table("eventos").update(data).eq("id", id).execute()
+        return response.data
+    except Exception as e:
+        logger.error(f"Error actualizando evento {id}: {e}")
+        return None
 
 def parse_recordatorio(valor):
     dias = horas = minutos = 0
@@ -68,11 +89,19 @@ def parse_recordatorio(valor):
             minutos += cantidad
     return timedelta(days=dias, hours=horas, minutes=minutos)
 
+def eliminar_evento(id):
+    try:
+        response = supabase.table("eventos").delete().eq("id", id).execute()
+        return response.data
+    except Exception as e:
+        logger.error(f"Error eliminando evento {id}: {e}")
+        return None
+
 async def programar_recordatorio(evento):
     if "recordatorio" not in evento:
         return
     try:
-        fecha_evento = datetime.strptime(f"{evento['fecha']} {evento['hora']}", "%Y-%m-%d %H:%M")
+        fecha_evento = datetime.strptime(f"{evento['fecha']} {evento['hora']}", "%Y-%m-%d %H:%M:%S")
         recordatorio_delta = parse_recordatorio(evento["recordatorio"])
         momento_envio = fecha_evento - recordatorio_delta
         espera = (momento_envio - datetime.now()).total_seconds()
@@ -94,8 +123,6 @@ async def on_ready():
         # Sincronizar comandos directamente en tu servidor
         guild_obj = discord.Object(id=GUILD_ID)
         logger.info(f"Sincronizando comandos en el servidor {GUILD_ID}...")
-        
-        # Sincronizar solo en tu servidor específico
         await tree.sync(guild=guild_obj)
         logger.info(f"6 comandos sincronizados en guild {GUILD_ID}")
         
@@ -116,29 +143,33 @@ guild_obj = discord.Object(id=GUILD_ID) if GUILD_ID else None
 @tree.command(name="crear_evento", description="Crea un nuevo evento", guild=guild_obj)
 @app_commands.describe(
     nombre="Nombre del evento", 
-    fecha="Fecha en formato YYYY-MM-DD", 
+    fecha="Fecha en formato DD-MM-YYYY",  # <-- Cambiar descripción
     hora="Hora en formato HH:MM", 
     lugar="Ubicación del evento", 
     recordatorio="Recordatorio (ej: 2d12h30m) - opcional"
 )
 async def crear_evento(interaction: discord.Interaction, nombre: str, fecha: str, hora: str, lugar: str, recordatorio: str = None):
     try:
-        # Validar formato de fecha y hora
-        datetime.strptime(f"{fecha} {hora}", "%Y-%m-%d %H:%M")
+        # Validar formato de fecha y hora (input DD-MM-YYYY)
+        fecha_obj = datetime.strptime(fecha, "%d-%m-%Y")
+        # Convertir a formato YYYY-MM-DD para la base de datos
+        fecha_db = fecha_obj.strftime("%Y-%m-%d")
+        # Validar hora
+        datetime.strptime(hora, "%H:%M")
         
-        eventos = cargar_eventos()
         nuevo = {
-            "id": generar_id(eventos),
             "nombre": nombre,
-            "fecha": fecha,
+            "fecha": fecha_db,
             "hora": hora,
-            "lugar": lugar
+            "lugar": lugar,
         }
         if recordatorio:
             nuevo["recordatorio"] = recordatorio
-        
-        eventos.append(nuevo)
-        guardar_eventos(eventos)
+
+        evento_insertado = guardar_evento(nuevo)
+        if not evento_insertado:
+            await interaction.response.send_message("❌ Error al guardar en la base de datos.", ephemeral=True)
+            return
         
         embed = discord.Embed(
             title="✅ Evento Creado",
@@ -159,90 +190,125 @@ async def crear_evento(interaction: discord.Interaction, nombre: str, fecha: str
         
         # Programar recordatorio
         asyncio.create_task(programar_recordatorio(nuevo))
-        logger.info(f"Evento creado: {nombre} - ID {nuevo['id']}")
+        logger.info(f"Evento creado: {nombre}")
         
     except ValueError:
-        await interaction.response.send_message("❌ Formato de fecha u hora incorrecto. Usa YYYY-MM-DD para fecha y HH:MM para hora.", ephemeral=True)
+        await interaction.response.send_message("❌ Formato de fecha u hora incorrecto. Usa DD-MM-YYYY para fecha y HH:MM para hora.", ephemeral=True)
     except Exception as e:
         logger.error(f"Error creando evento: {e}")
         await interaction.response.send_message("❌ Error al crear el evento.", ephemeral=True)
-
+ 
 @tree.command(name="modificar_evento", description="Modifica un campo de un evento", guild=guild_obj)
 @app_commands.describe(id="ID del evento", campo="Campo a modificar", valor="Nuevo valor")
 async def modificar_evento(interaction: discord.Interaction, id: int, campo: str, valor: str):
     try:
-        eventos = cargar_eventos()
-        for e in eventos:
-            if e["id"] == id:
-                if campo in ["nombre", "fecha", "hora", "lugar", "recordatorio"]:
-                    e[campo] = valor
-                    guardar_eventos(eventos)
-                    
-                    embed = discord.Embed(
-                        title="✏️ Evento Modificado",
-                        description=f"**ID {id}:** {campo} actualizado a '{valor}'",
-                        color=0xFFD700
-                    )
-                    # Enviar respuesta en el canal específico si es diferente
-                    if interaction.channel.id != CHANNEL_ID:
-                        await interaction.response.send_message("✏️ Evento modificado (respuesta enviada al canal principal)", ephemeral=True)
-                        canal = client.get_channel(CHANNEL_ID)
-                        if canal:
-                            await canal.send(embed=embed)
-                    else:
-                        await interaction.response.send_message(embed=embed)
-                    logger.info(f"Evento {id} modificado: {campo} = {valor}")
-                    return
-                else:
-                    await interaction.response.send_message("❌ Campo no válido. Campos disponibles: nombre, fecha, hora, lugar, recordatorio", ephemeral=True)
-                    return
-        
-        await interaction.response.send_message("❌ Evento no encontrado", ephemeral=True)
+        campos_validos = ["nombre", "fecha", "hora", "lugar", "recordatorio"]
+
+        if campo not in campos_validos:
+            await interaction.response.send_message(
+                f"❌ Campo no válido. Campos disponibles: {', '.join(campos_validos)}",
+                ephemeral=True
+            )
+            return
+
+        # Validaciones básicas de formato
+        if campo == "fecha":
+            try:
+                datetime.strptime(valor, "%Y-%m-%d")
+            except ValueError:
+                await interaction.response.send_message("❌ Fecha inválida. Usa el formato YYYY-MM-DD", ephemeral=True)
+                return
+
+        if campo == "hora":
+            try:
+                datetime.strptime(valor, "%H:%M")
+            except ValueError:
+                await interaction.response.send_message("❌ Hora inválida. Usa el formato HH:MM", ephemeral=True)
+                return
+
+        # Verificar que el evento exista
+        evento_res = supabase.table("eventos").select("*").eq("id", id).execute()
+        if not evento_res.data:
+            await interaction.response.send_message("❌ Evento no encontrado", ephemeral=True)
+            return
+
+        # Realizar la actualización
+        response = supabase.table("eventos").update({campo: valor}).eq("id", id).execute()
+
+        if response.status_code != 200:
+            await interaction.response.send_message("❌ Error al actualizar en la base de datos", ephemeral=True)
+            return
+
+        # Construir respuesta
+        embed = discord.Embed(
+            title="✏️ Evento Modificado",
+            description=f"**ID {id}:** {campo} actualizado a '{valor}'",
+            color=0xFFD700
+        )
+
+        if interaction.channel.id != CHANNEL_ID:
+            await interaction.response.send_message("✏️ Evento modificado (respuesta enviada al canal principal)", ephemeral=True)
+            canal = client.get_channel(CHANNEL_ID)
+            if canal:
+                await canal.send(embed=embed)
+        else:
+            await interaction.response.send_message(embed=embed)
+
+        logger.info(f"Evento {id} modificado: {campo} = {valor}")
+
     except Exception as e:
         logger.error(f"Error modificando evento: {e}")
         await interaction.response.send_message("❌ Error al modificar el evento.", ephemeral=True)
 
+        
 @tree.command(name="eliminar_evento", description="Elimina un evento", guild=guild_obj)
 @app_commands.describe(id="ID del evento a eliminar")
 async def eliminar_evento(interaction: discord.Interaction, id: int):
     try:
-        eventos = cargar_eventos()
-        evento_eliminado = None
-        for e in eventos:
-            if e["id"] == id:
-                evento_eliminado = e
-                break
-        
-        if evento_eliminado:
-            nuevos = [e for e in eventos if e["id"] != id]
-            guardar_eventos(nuevos)
-            
-            embed = discord.Embed(
-                title="🗑️ Evento Eliminado",
-                description=f"**{evento_eliminado['nombre']}** (ID {id}) ha sido eliminado",
-                color=0xFF0000
-            )
-            # Enviar respuesta en el canal específico si es diferente
-            if interaction.channel.id != CHANNEL_ID:
-                await interaction.response.send_message("🗑️ Evento eliminado (respuesta enviada al canal principal)", ephemeral=True)
-                canal = client.get_channel(CHANNEL_ID)
-                if canal:
-                    await canal.send(embed=embed)
-            else:
-                await interaction.response.send_message(embed=embed)
-            logger.info(f"Evento eliminado: {evento_eliminado['nombre']} - ID {id}")
-        else:
+
+        # Verificar si el evento existe antes de eliminar
+        response = supabase.table("eventos").select("*").eq("id", id).execute()
+        if not response.data:
             await interaction.response.send_message("❌ Evento no encontrado", ephemeral=True)
+            return
+
+        evento_eliminado = response.data[0]
+
+        # Ejecutar la eliminación
+        delete_response = supabase.table("eventos").delete().eq("id", id).execute()
+
+        if delete_response.status_code != 200:
+            await interaction.response.send_message("❌ Error al eliminar el evento de la base de datos.", ephemeral=True)
+            return
+
+        embed = discord.Embed(
+            title="🗑️ Evento Eliminado",
+            description=f"**{evento_eliminado['nombre']}** (ID {id}) ha sido eliminado",
+            color=0xFF0000
+        )
+
+        if interaction.channel.id != CHANNEL_ID:
+            await interaction.response.send_message("🗑️ Evento eliminado (respuesta enviada al canal principal)", ephemeral=True)
+            canal = client.get_channel(CHANNEL_ID)
+            if canal:
+                await canal.send(embed=embed)
+        else:
+            await interaction.response.send_message(embed=embed)
+
+        logger.info(f"Evento eliminado: {evento_eliminado['nombre']} - ID {id}")
+
     except Exception as e:
         logger.error(f"Error eliminando evento: {e}")
         await interaction.response.send_message("❌ Error al eliminar el evento.", ephemeral=True)
 
+        
 @tree.command(name="listar_eventos", description="Muestra todos los eventos próximos", guild=guild_obj)
 async def listar_eventos(interaction: discord.Interaction):
     try:
-        eventos = cargar_eventos()
-        eventos.sort(key=lambda e: f"{e['fecha']} {e['hora']}")
-        
+        # Obtener eventos ordenados por fecha y hora
+        response = supabase.table("eventos").select("*").order("fecha", desc=False).order("hora", desc=False).execute()
+        eventos = response.data if response.data else []
+
         if not eventos:
             embed = discord.Embed(
                 title="📭 No hay eventos",
@@ -251,37 +317,42 @@ async def listar_eventos(interaction: discord.Interaction):
             )
             await interaction.response.send_message(embed=embed)
             return
-        
+
         embed = discord.Embed(
             title="📅 Eventos Programados",
             color=0x0099FF
         )
-        
-        for e in eventos[:10]:  # Limitar a 10 para evitar límites de embed
-            evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M")
+
+        for e in eventos[:10]:  # Limitar a 10 para evitar límite de caracteres
+            evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M:%S")
             timestamp = int(evento_time.timestamp())
-            
+
             embed.add_field(
                 name=f"#{e['id']} - {e['nombre']}",
                 value=f"📅 <t:{timestamp}:F>\n📍 {e['lugar']}",
                 inline=False
             )
-        
+
         if len(eventos) > 10:
             embed.set_footer(text=f"Mostrando 10 de {len(eventos)} eventos")
-        
-        # Enviar respuesta en el canal específico si es diferente
+
+        # Enviar respuesta en canal correcto
         if interaction.channel.id != CHANNEL_ID:
             await interaction.response.send_message("📋 Lista de eventos enviada al canal principal", ephemeral=True)
             canal = client.get_channel(CHANNEL_ID)
             if canal:
+                logger.error(f"Encontrado canal con ID {CHANNEL_ID}")
                 await canal.send(embed=embed)
         else:
             await interaction.response.send_message(embed=embed)
+
+        logger.info("Lista de eventos enviada")
+
     except Exception as e:
         logger.error(f"Error listando eventos: {e}")
         await interaction.response.send_message("❌ Error al listar eventos.", ephemeral=True)
-
+        
+        
 @tree.command(name="semana", description="Muestra los eventos de una semana específica", guild=guild_obj)
 @app_commands.describe(numero="Número de semana (1-53), si no se especifica usa la semana actual")
 async def semana(interaction: discord.Interaction, numero: int = None):
@@ -289,32 +360,53 @@ async def semana(interaction: discord.Interaction, numero: int = None):
         hoy = datetime.now()
         año = hoy.year
         semana_obj = numero or hoy.isocalendar()[1]
-        
-        lunes = datetime.fromisocalendar(año, semana_obj, 1)
+
+        lunes = datetime.fromisocalendar(año, semana_obj, 1).date()
         domingo = lunes + timedelta(days=6)
-        
-        eventos = cargar_eventos()
-        eventos_semana = [e for e in eventos if lunes.date() <= datetime.strptime(e["fecha"], "%Y-%m-%d").date() <= domingo.date()]
-        eventos_semana.sort(key=lambda e: f"{e['fecha']} {e['hora']}")
-        
+
+        # Diccionario para traducir días de la semana al español
+        dias_es = {
+            "Monday": "Lunes",
+            "Tuesday": "Martes",
+            "Wednesday": "Miércoles",
+            "Thursday": "Jueves",
+            "Friday": "Viernes",
+            "Saturday": "Sábado",
+            "Sunday": "Domingo"
+        }
+
+        # Consulta a supabase con filtro entre lunes y domingo
+        response = supabase.table("eventos").select("*") \
+            .gte("fecha", lunes.isoformat()) \
+            .lte("fecha", domingo.isoformat()) \
+            .order("fecha", desc=False) \
+            .order("hora", desc=False) \
+            .execute()
+            
+        eventos_semana = response.data if response.data else []
+
         embed = discord.Embed(
             title=f"📅 Semana {semana_obj} ({lunes.strftime('%d/%m')} - {domingo.strftime('%d/%m')})",
             color=0x0099FF
         )
-        
+
         if not eventos_semana:
             embed.description = "No hay eventos programados para esta semana."
         else:
             for e in eventos_semana:
-                evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M")
-                dia_semana = evento_time.strftime('%A')
+                # Asegurarse de que el formato de hora sea compatible
+                try:
+                    evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M:%S")
+                except ValueError:
+                    evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M")
+                dia_semana_en = evento_time.strftime('%A')
+                dia_semana = dias_es.get(dia_semana_en, dia_semana_en)
                 embed.add_field(
                     name=f"{dia_semana} - {e['nombre']}",
                     value=f"🕒 {e['hora']} | 📍 {e['lugar']}",
                     inline=False
                 )
-        
-        # Enviar respuesta en el canal específico si es diferente
+
         if interaction.channel.id != CHANNEL_ID:
             await interaction.response.send_message("📅 Vista semanal enviada al canal principal", ephemeral=True)
             canal = client.get_channel(CHANNEL_ID)
@@ -326,6 +418,7 @@ async def semana(interaction: discord.Interaction, numero: int = None):
         logger.error(f"Error mostrando semana: {e}")
         await interaction.response.send_message("❌ Error al mostrar eventos de la semana.", ephemeral=True)
 
+
 @tree.command(name="mes", description="Muestra los eventos de un mes específico", guild=guild_obj)
 @app_commands.describe(numero="Número de mes (1-12), si no se especifica usa el mes actual")
 async def mes(interaction: discord.Interaction, numero: int = None):
@@ -333,31 +426,42 @@ async def mes(interaction: discord.Interaction, numero: int = None):
         hoy = datetime.now()
         año = hoy.year
         mes_num = numero or hoy.month
-        
-        eventos = cargar_eventos()
-        eventos_mes = [e for e in eventos if datetime.strptime(e["fecha"], "%Y-%m-%d").month == mes_num]
-        eventos_mes.sort(key=lambda e: f"{e['fecha']} {e['hora']}")
-        
-        nombres_meses = ["", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-                        "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
-        
-        embed = discord.Embed(
-            title=f"📅 {nombres_meses[mes_num]} {año}",
-            color=0x0099FF
-        )
-        
+
+        if mes_num < 1 or mes_num > 12:
+            await interaction.response.send_message("❌ El número del mes debe estar entre 1 y 12.", ephemeral=True)
+            return
+
+        # Consulta a supabase
+        response = supabase.table("eventos") \
+            .select("*") \
+            .gte("fecha", f"{año}-{mes_num:02d}-01") \
+            .lt("fecha", f"{año}-{mes_num+1:02d}-01" if mes_num < 12 else f"{año+1}-01-01") \
+            .order("fecha", desc=False) \
+            .order("hora", desc=False) \
+            .execute()
+
+        eventos_mes = response.data if response.data else []
         if not eventos_mes:
             embed.description = "No hay eventos programados para este mes."
         else:
-            for e in eventos_mes:
-                fecha_obj = datetime.strptime(e["fecha"], "%Y-%m-%d")
-                embed.add_field(
-                    name=f"Día {fecha_obj.day} - {e['nombre']}",
-                    value=f"🕒 {e['hora']} | 📍 {e['lugar']}",
-                    inline=False
-                )
-        
-        # Enviar respuesta en el canal específico si es diferente
+            nombres_meses = ["", "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+                            "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"]
+            embed = discord.Embed(
+                title=f"📅 {nombres_meses[mes_num]} {año}",
+                color=0x0099FF
+            )
+
+            if not eventos_mes:
+                embed.description = "No hay eventos programados para este mes."
+            else:
+                for e in eventos_mes:
+                    fecha_obj = datetime.strptime(e["fecha"], "%Y-%m-%d")
+                    embed.add_field(
+                        name=f"Día {fecha_obj.day} - {e['nombre']}",
+                        value=f"🕒 {e['hora']} | 📍 {e['lugar']}",
+                        inline=False
+                    )
+
         if interaction.channel.id != CHANNEL_ID:
             await interaction.response.send_message("📅 Vista mensual enviada al canal principal", ephemeral=True)
             canal = client.get_channel(CHANNEL_ID)
@@ -365,44 +469,75 @@ async def mes(interaction: discord.Interaction, numero: int = None):
                 await canal.send(embed=embed)
         else:
             await interaction.response.send_message(embed=embed)
+
     except Exception as e:
         logger.error(f"Error mostrando mes: {e}")
         await interaction.response.send_message("❌ Error al mostrar eventos del mes.", ephemeral=True)
 
-@tasks.loop(hours=1)
+
+@tasks.loop(minutes=1)
 async def resumen_semanal():
     try:
         ahora = datetime.now()
-        # Enviar resumen los domingos a las 20:00
+        # Diccionario para traducir días de la semana al español
+        dias_es = {
+            "Monday": "Lunes",
+            "Tuesday": "Martes",
+            "Wednesday": "Miércoles",
+            "Thursday": "Jueves",
+            "Friday": "Viernes",
+            "Saturday": "Sábado",
+            "Sunday": "Domingo"
+        }
+        # Enviar resumen los domingos a las 20:00 y para depuración hoy lunes a las 19:41
+        enviar = False
         if ahora.weekday() == 6 and ahora.hour == 20:
-            proximo_lunes = ahora + timedelta(days=1)
+            enviar = True
+
+        if enviar:
+            proximo_lunes = ahora + timedelta(days=(7 - ahora.weekday())) if ahora.weekday() != 0 else ahora
+            proximo_lunes = proximo_lunes.replace(hour=0, minute=0, second=0, microsecond=0)
             siguiente_domingo = proximo_lunes + timedelta(days=6)
+
+            # Filtrar eventos entre próximo lunes y siguiente domingo
+            response = supabase.table("eventos") \
+                .select("*") \
+                .gte("fecha", proximo_lunes.strftime("%Y-%m-%d")) \
+                .lte("fecha", siguiente_domingo.strftime("%Y-%m-%d")) \
+                .order("fecha", desc=False) \
+                .order("hora", desc=False) \
+                .execute()
             
-            eventos = cargar_eventos()
-            semanales = [e for e in eventos if proximo_lunes.date() <= datetime.strptime(e["fecha"], "%Y-%m-%d").date() <= siguiente_domingo.date()]
+            embed = discord.Embed(
+                title=f"📅 Planificación Semanal",
+                description=f"Eventos del {proximo_lunes.strftime('%d/%m')} al {siguiente_domingo.strftime('%d/%m')}",
+                color=0x0099FF
+            )
+
+            semanales = response.data if response.data else []
             
+            if not semanales:
+                embed.description = "No hay eventos programados para esta semana."
+
             if semanales and CHANNEL_ID:
                 canal = client.get_channel(CHANNEL_ID)
                 if canal:
-                    embed = discord.Embed(
-                        title="📅 Planificación Semanal",
-                        description=f"Eventos del {proximo_lunes.strftime('%d/%m')} al {siguiente_domingo.strftime('%d/%m')}",
-                        color=0x0099FF
-                    )
-                    
-                    for e in sorted(semanales, key=lambda x: f"{x['fecha']} {x['hora']}"):
+                    for e in semanales:
                         fecha_obj = datetime.strptime(e["fecha"], "%Y-%m-%d")
-                        dia_semana = fecha_obj.strftime('%A')
+                        dia_semana_en = fecha_obj.strftime('%A')
+                        dia_semana = dias_es.get(dia_semana_en, dia_semana_en)
                         embed.add_field(
                             name=f"{dia_semana} - {e['nombre']}",
                             value=f"🕒 {e['hora']} | 📍 {e['lugar']}",
                             inline=False
                         )
-                    
+
                     await canal.send(embed=embed)
                     logger.info("Resumen semanal enviado")
+
     except Exception as e:
         logger.error(f"Error en resumen semanal: {e}")
+
 
 def main():
     """Función principal para iniciar el bot con keep-alive"""

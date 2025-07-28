@@ -1,0 +1,550 @@
+2025-07-28 18:43:43,946 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 18:43:43,947 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 18:43:43,947 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 18:43:43,949 - discord.client - INFO - logging in using static token
+2025-07-28 18:43:43,960 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 18:43:43,961 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 18:43:45,063 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 1de1fc600a4e671ca3057bb938a0437c).
+2025-07-28 18:43:47,071 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 18:43:47,071 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 18:43:47,302 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 18:43:48,455 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 18:43:48,457 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 18:45:34,594 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 401 Unauthorized"
+2025-07-28 18:45:34,594 - __main__ - ERROR - Error guardando evento en Supabase: {'message': 'new row violates row-level security policy for table "eventos"', 'code': '42501', 'hint': None, 'details': None}
+2025-07-28 18:50:40,037 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 401 Unauthorized"
+2025-07-28 18:50:40,038 - __main__ - ERROR - Error guardando evento en Supabase: {'message': 'new row violates row-level security policy for table "eventos"', 'code': '42501', 'hint': None, 'details': None}
+2025-07-28 18:51:53,336 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 201 Created"
+2025-07-28 18:51:53,596 - __main__ - ERROR - Error creando evento: 'id'
+2025-07-28 18:53:33,598 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 18:53:33,599 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 18:53:33,600 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 18:53:33,601 - discord.client - INFO - logging in using static token
+2025-07-28 18:53:33,611 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 18:53:33,611 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 18:53:34,658 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: b8eacc2a1d74a990aa53fc5f08f9e8f9).
+2025-07-28 18:53:36,663 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 18:53:36,663 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 18:53:36,851 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 18:53:37,526 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 18:53:37,527 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 18:53:37,528 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 18:54:08,276 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 201 Created"
+2025-07-28 18:54:09,953 - __main__ - INFO - Evento creado: dfa
+2025-07-28 18:57:00,407 - __main__ - ERROR - Error listando eventos: BaseSelectRequestBuilder.order() got an unexpected keyword argument 'asc'
+2025-07-28 18:58:20,390 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 18:58:20,392 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 18:58:20,392 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 18:58:20,393 - discord.client - INFO - logging in using static token
+2025-07-28 18:58:20,405 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 18:58:20,405 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 18:58:21,299 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: c6e6f1efacd956c46327cdbc90a0b56b).
+2025-07-28 18:58:23,313 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 18:58:23,313 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 18:58:23,497 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 18:58:24,074 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 18:58:24,076 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 18:58:38,886 - __main__ - ERROR - Error listando eventos: BaseSelectRequestBuilder.order() got an unexpected keyword argument 'ascending'
+2025-07-28 19:00:21,988 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:00:21,989 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:00:21,990 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:00:21,991 - discord.client - INFO - logging in using static token
+2025-07-28 19:00:22,001 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:00:22,002 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:00:22,957 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 9d0b773d0c5d698c770ea319e99f8bf2).
+2025-07-28 19:00:24,967 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:00:24,967 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:00:25,188 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:00:25,784 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:00:25,786 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:00:30,166 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:04:00,083 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 201 Created"
+2025-07-28 19:04:00,347 - __main__ - INFO - Evento creado: sdafa
+2025-07-28 19:04:21,015 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:04:21,365 - __main__ - INFO - Lista de eventos enviada
+2025-07-28 19:06:19,914 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:06:19,916 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:06:19,916 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:06:19,917 - discord.client - INFO - logging in using static token
+2025-07-28 19:06:19,927 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:06:19,929 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:06:21,071 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: ff0f1fdeed0a30275921e4d9545355e9).
+2025-07-28 19:06:23,085 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:06:23,085 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:06:23,286 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:06:23,939 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:06:23,941 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:06:23,942 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:06:52,038 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:06:52,039 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:06:52,040 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:06:52,041 - discord.client - INFO - logging in using static token
+2025-07-28 19:06:52,051 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:06:52,051 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:06:53,568 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 87cad58081fa7be3a87c629541dbfa38).
+2025-07-28 19:06:55,578 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:06:55,578 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:06:55,834 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:06:56,240 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:06:56,242 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:06:56,243 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:07:03,306 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:07:03,534 - __main__ - ERROR - No se encontró el canal con ID 1397620205588316200
+2025-07-28 19:07:03,534 - __main__ - ERROR - Error listando eventos: This interaction has already been responded to before
+2025-07-28 19:07:12,493 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:07:12,709 - __main__ - ERROR - No se encontró el canal con ID 1397620205588316200
+2025-07-28 19:07:12,709 - __main__ - ERROR - Error listando eventos: This interaction has already been responded to before
+2025-07-28 19:07:27,639 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:07:27,642 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:07:27,642 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:07:27,643 - discord.client - INFO - logging in using static token
+2025-07-28 19:07:27,652 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:07:27,652 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:07:28,855 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 49b622feffaf8af400790a3310dfccf8).
+2025-07-28 19:07:30,865 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:07:30,865 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:07:31,084 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:07:31,487 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:07:31,488 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:07:31,488 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:07:38,518 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:07:38,780 - __main__ - ERROR - No se encontró el canal con ID 1397620205588316200
+2025-07-28 19:07:38,780 - __main__ - ERROR - Error listando eventos: This interaction has already been responded to before
+2025-07-28 19:08:18,281 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:08:18,282 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:08:18,282 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:08:18,283 - discord.client - INFO - logging in using static token
+2025-07-28 19:08:18,293 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:08:18,293 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:08:19,234 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 67f48a13163ac4a8f8d1ee2d884eaf89).
+2025-07-28 19:08:21,241 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:08:21,241 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:08:21,465 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:08:22,096 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:08:22,097 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:08:22,098 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:08:35,930 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:08:36,176 - __main__ - ERROR - No se encontró el canal con ID 1397620205588316200
+2025-07-28 19:08:36,177 - __main__ - ERROR - Error listando eventos: This interaction has already been responded to before
+2025-07-28 19:09:05,252 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:09:05,254 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:09:05,254 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:09:05,255 - discord.client - INFO - logging in using static token
+2025-07-28 19:09:05,265 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:09:05,265 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:09:06,175 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 7a9780ad5bcabb6614ec03def7c8456e).
+2025-07-28 19:09:08,184 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:09:08,184 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:09:08,478 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:09:08,894 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:09:08,897 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:09:08,898 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:09:23,251 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:09:23,515 - __main__ - ERROR - No se encontró el canal con ID 1397620205588316200
+2025-07-28 19:09:23,515 - __main__ - INFO - Lista de eventos enviada
+2025-07-28 19:09:46,015 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:09:46,428 - __main__ - ERROR - No se encontró el canal con ID 1397620205588316200
+2025-07-28 19:09:46,429 - __main__ - INFO - Lista de eventos enviada
+2025-07-28 19:10:22,511 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:10:22,513 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:10:22,513 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:10:22,514 - discord.client - INFO - logging in using static token
+2025-07-28 19:10:22,526 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:10:22,526 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:10:23,508 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: eb8d3e6c52ec3d7e440b11aaddaef7a9).
+2025-07-28 19:10:25,524 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:10:25,524 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:10:25,731 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:10:26,312 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:10:26,314 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:10:26,315 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:11:24,836 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:11:24,837 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:11:24,837 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:11:24,839 - discord.client - INFO - logging in using static token
+2025-07-28 19:11:24,848 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:11:24,848 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:11:25,831 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: e1bcc6fd6e66e802048acc5086990aef).
+2025-07-28 19:11:27,868 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:11:27,868 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:11:28,120 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:11:28,589 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:11:28,591 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:11:28,591 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:15:51,139 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:15:51,446 - __main__ - ERROR - Encontrado canal con ID 1397620205588316200
+2025-07-28 19:15:51,740 - __main__ - INFO - Lista de eventos enviada
+2025-07-28 19:26:46,175 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 201 Created"
+2025-07-28 19:26:46,722 - __main__ - INFO - Evento creado: entrenamiento
+2025-07-28 19:27:04,266 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-28&fecha=lte.2025-08-03&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:27:18,736 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-01&fecha=lt.2025-08-01&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:27:18,737 - __main__ - ERROR - Error mostrando mes: 'APIResponse[TypeVar]' object has no attribute 'status_code'
+2025-07-28 19:27:27,993 - discord.app_commands.tree - ERROR - Ignoring exception in command tree
+Traceback (most recent call last):
+  File "C:\Users\erikp\Desktop\Botcalendario24h\venv\Lib\site-packages\discord\app_commands\tree.py", line 1151, in wrapper
+    await self._call(interaction)
+  File "C:\Users\erikp\Desktop\Botcalendario24h\venv\Lib\site-packages\discord\app_commands\tree.py", line 1283, in _call
+    command, options = self._get_app_command_options(data)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\erikp\Desktop\Botcalendario24h\venv\Lib\site-packages\discord\app_commands\tree.py", line 1187, in _get_app_command_options
+    raise CommandNotFound(name, parents)
+discord.app_commands.errors.CommandNotFound: Application command 'mes' not found
+2025-07-28 19:29:38,471 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:29:38,472 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:29:38,473 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:29:38,474 - discord.client - INFO - logging in using static token
+2025-07-28 19:29:38,483 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:29:38,483 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:29:39,548 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 833ff9a5eb7dcc5d7cdaec130bae3fc5).
+2025-07-28 19:29:41,552 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:29:41,552 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:29:41,850 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:29:42,490 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:29:42,492 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:29:42,492 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:29:42,492 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:30:30,775 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 201 Created"
+2025-07-28 19:30:31,247 - __main__ - INFO - Evento creado: entrenamiento
+2025-07-28 19:30:45,873 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:30:46,088 - __main__ - ERROR - Encontrado canal con ID 1397620205588316200
+2025-07-28 19:30:46,435 - __main__ - INFO - Lista de eventos enviada
+2025-07-28 19:32:21,492 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-01&fecha=lt.2025-08-01&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:32:21,492 - __main__ - ERROR - Error mostrando mes: 'APIResponse[TypeVar]' object has no attribute 'status_code'
+2025-07-28 19:33:37,532 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:33:37,533 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:33:37,533 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:33:37,535 - discord.client - INFO - logging in using static token
+2025-07-28 19:33:37,544 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:33:37,544 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:33:38,442 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: ec6cea7af7c43996229b1079e87a0f0f).
+2025-07-28 19:33:40,459 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:33:40,459 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:33:40,690 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:33:41,097 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:33:41,098 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:33:41,098 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:33:41,099 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:33:41,099 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:33:45,867 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-01&fecha=lt.2025-08-01&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:33:45,868 - __main__ - INFO - {"data":[{"id":5,"nombre":"sdafa","fecha":"2025-07-29","hora":"19:00:00","lugar":"adfas","recordatorio":"1d+"},{"id":6,"nombre":"entrenamiento","fecha":"2025-07-30","hora":"20:00:00","lugar":"Oira","recordatorio":"2d"}],"count":null}
+2025-07-28 19:33:45,869 - __main__ - ERROR - Error mostrando mes: 'APIResponse[TypeVar]' object has no attribute 'status_code'
+2025-07-28 19:35:29,636 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:35:29,638 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:35:29,638 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:35:29,638 - discord.client - INFO - logging in using static token
+2025-07-28 19:35:29,650 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:35:29,650 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:35:30,629 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 52607b899cd83f9e077c936fa813c8c5).
+2025-07-28 19:35:32,631 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:35:32,631 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:35:32,834 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:35:33,405 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:35:33,407 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:35:33,408 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:35:33,408 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:35:33,408 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:35:37,084 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-01&fecha=lt.2025-08-01&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:36:05,531 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-28&fecha=lte.2025-08-03&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:37:24,884 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:37:24,886 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:37:24,886 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:37:24,887 - discord.client - INFO - logging in using static token
+2025-07-28 19:37:24,898 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:37:24,898 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:37:25,829 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 8d71dd8a28eaaf03a33493541cab64a6).
+2025-07-28 19:37:27,840 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:37:27,840 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:37:28,146 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:37:28,774 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:37:28,777 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:37:28,777 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:37:28,777 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:37:28,777 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:37:44,877 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-28&fecha=lte.2025-08-03&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:40:19,108 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:40:19,109 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:40:19,110 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:40:19,111 - discord.client - INFO - logging in using static token
+2025-07-28 19:40:19,121 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:40:19,121 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:40:21,037 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 102f1949401352a8435e1ece8efcedae).
+2025-07-28 19:40:23,048 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:40:23,048 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:40:23,221 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:40:23,978 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:40:23,980 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:40:23,980 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:40:23,980 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:40:23,980 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:40:31,623 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:40:31,624 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:40:31,624 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:40:31,626 - discord.client - INFO - logging in using static token
+2025-07-28 19:40:31,636 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:40:31,636 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:40:34,123 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: de03ac7c75a40ce1f057b2e58556b7b4).
+2025-07-28 19:40:36,136 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:40:36,136 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:41:23,236 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:41:23,681 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:41:23,684 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:41:23,684 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:41:23,684 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:41:23,684 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:41:23,789 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-28&fecha=lte.2025-08-03&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:41:23,790 - __main__ - ERROR - Error en resumen semanal: 'APIResponse[TypeVar]' object has no attribute 'status_code'
+2025-07-28 19:42:22,294 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:42:22,295 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:42:22,296 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:42:22,297 - discord.client - INFO - logging in using static token
+2025-07-28 19:42:22,306 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:42:22,306 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:42:23,275 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 9c1cb8baf1b4b3790bb6525f1438b628).
+2025-07-28 19:42:25,290 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:42:25,290 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:42:25,489 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:42:26,090 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:42:26,092 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:42:26,092 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:42:26,092 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:42:26,092 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:44:26,427 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-28&fecha=lte.2025-08-03&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:44:26,428 - __main__ - ERROR - Error en resumen semanal: 'APIResponse[TypeVar]' object has no attribute 'status_code'
+2025-07-28 19:45:19,512 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:45:19,513 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:45:19,513 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:45:19,515 - discord.client - INFO - logging in using static token
+2025-07-28 19:45:19,524 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:45:19,524 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:45:20,430 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 04a50d39d9307d577d295f68895feafc).
+2025-07-28 19:45:26,828 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:45:26,829 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:45:26,830 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:45:26,831 - discord.client - INFO - logging in using static token
+2025-07-28 19:45:26,840 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:45:26,840 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:45:28,062 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 35544f9fd7d677463871f285fd16e126).
+2025-07-28 19:45:30,077 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:45:30,077 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:45:30,317 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:45:30,767 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:45:30,768 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:45:30,768 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:45:30,770 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:45:30,770 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:47:31,145 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-28&fecha=lte.2025-08-03&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:47:31,146 - __main__ - ERROR - Error en resumen semanal: 'APIResponse[TypeVar]' object has no attribute 'status_code'
+2025-07-28 19:48:34,284 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:48:34,285 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:48:34,285 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:48:34,286 - discord.client - INFO - logging in using static token
+2025-07-28 19:48:34,297 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:48:34,298 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:48:35,758 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 18391597ddd035549d28a556f0f70700).
+2025-07-28 19:48:37,775 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:48:37,775 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:48:43,248 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:48:43,249 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:48:43,249 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:48:43,250 - discord.client - INFO - logging in using static token
+2025-07-28 19:48:43,259 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:48:43,261 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:48:44,363 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 0e27c65a348cf5aff2b0b43660908717).
+2025-07-28 19:48:46,384 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:48:46,384 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:49:37,991 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 19:49:38,637 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 19:49:38,639 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 19:49:38,640 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:49:38,640 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:49:38,640 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 19:49:38,787 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-28&fecha=lte.2025-08-03&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 19:49:39,144 - __main__ - INFO - Resumen semanal enviado
+2025-07-28 19:54:52,277 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:54:52,279 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:54:52,279 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:54:52,280 - discord.client - INFO - logging in using static token
+2025-07-28 19:54:52,289 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:54:52,290 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:54:53,510 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 8ab167109a1fd9f682c9fd1f9bb324a1).
+2025-07-28 19:54:55,526 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:54:55,526 - __main__ - ERROR - Error en on_ready: object NoneType can't be used in 'await' expression
+2025-07-28 19:55:18,636 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:55:18,637 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:55:18,638 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:55:18,639 - discord.client - INFO - logging in using static token
+2025-07-28 19:55:18,649 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:55:18,649 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:55:19,552 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 198ff221d7d135326afe78e0c3613de2).
+2025-07-28 19:55:21,562 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:55:21,562 - __main__ - ERROR - Error en on_ready: CommandTree.clear_commands() takes 1 positional argument but 2 were given
+2025-07-28 19:56:24,911 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:56:24,912 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:56:24,912 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:56:24,914 - discord.client - INFO - logging in using static token
+2025-07-28 19:56:24,922 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:56:24,924 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:56:25,816 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: efee743f39b25e4fb44ab98c77b2e1b7).
+2025-07-28 19:56:27,844 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:56:27,844 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:56:27,844 - __main__ - ERROR - Error en on_ready: object NoneType can't be used in 'await' expression
+2025-07-28 19:57:26,296 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 19:57:26,298 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 19:57:26,298 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 19:57:26,299 - discord.client - INFO - logging in using static token
+2025-07-28 19:57:26,311 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 19:57:26,312 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 19:57:27,335 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: ab3f9beec17a1d111727015b4b7dacf7).
+2025-07-28 19:57:29,344 - __main__ - INFO - Bot conectado como OurenseOntime#1865
+2025-07-28 19:57:29,344 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 19:57:29,344 - __main__ - ERROR - Error en on_ready: object NoneType can't be used in 'await' expression
+2025-07-28 20:02:34,027 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:02:34,028 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:02:34,029 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:02:34,030 - discord.client - INFO - logging in using static token
+2025-07-28 20:02:34,041 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:02:34,041 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:02:34,980 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: f12fa1f6a6cde2311b364b4dd41c17d2).
+2025-07-28 20:02:36,990 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:02:36,990 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:02:36,990 - __main__ - ERROR - Error en on_ready: object NoneType can't be used in 'await' expression
+2025-07-28 20:02:49,829 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:02:49,831 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:02:49,831 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:02:49,832 - discord.client - INFO - logging in using static token
+2025-07-28 20:02:49,842 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:02:49,842 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:02:51,491 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 7a52d496aef62710352b9d792793e7f5).
+2025-07-28 20:02:53,493 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:02:53,493 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:02:53,804 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 20:02:54,525 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 20:02:54,528 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 20:02:54,528 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 20:02:54,529 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 20:02:54,529 - __main__ - ERROR - Error programando recordatorio: unconverted data remains: :00
+2025-07-28 20:04:00,768 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:04:00,769 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:04:00,770 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:04:00,771 - discord.client - INFO - logging in using static token
+2025-07-28 20:04:00,781 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:04:00,781 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:04:01,783 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 40e12dda648d6b3bc95fcd4ab7f97512).
+2025-07-28 20:04:03,787 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:04:03,787 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:04:03,991 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 20:04:04,538 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 20:04:04,540 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 20:05:00,821 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 201 Created"
+2025-07-28 20:05:01,560 - __main__ - ERROR - Error creando evento: 403 Forbidden (error code: 50013): Missing Permissions
+2025-07-28 20:06:12,394 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2025-07-28 20:06:12,397 - __main__ - INFO - Iniciando servidor keep-alive...
+2025-07-28 20:06:12,397 - __main__ - INFO - Iniciando Discord bot...
+2025-07-28 20:06:12,398 - discord.client - INFO - logging in using static token
+2025-07-28 20:06:12,408 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://192.168.0.14:8080
+2025-07-28 20:06:12,409 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-07-28 20:06:13,437 - discord.gateway - INFO - Shard ID None has connected to Gateway (Session ID: 6363e87ee9946b2dbe7e96a0b90890b9).
+2025-07-28 20:06:15,440 - __main__ - INFO - Bot conectado como CalendarioOntime#6731
+2025-07-28 20:06:15,440 - __main__ - INFO - Sincronizando comandos en el servidor 1397541016319295600...
+2025-07-28 20:06:15,663 - __main__ - INFO - 6 comandos sincronizados en guild 1397541016319295600
+2025-07-28 20:06:16,149 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A "HTTP/2 200 OK"
+2025-07-28 20:06:16,151 - __main__ - INFO - Bot completamente inicializado con comandos limpios
+2025-07-28 20:07:34,228 - httpx - INFO - HTTP Request: POST https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos "HTTP/2 201 Created"
+2025-07-28 20:07:34,919 - __main__ - INFO - Evento creado: entrenamiento
+2025-07-28 20:07:34,919 - __main__ - ERROR - Error programando recordatorio: time data '2025-08-12 19:00' does not match format '%Y-%m-%d %H:%M:%S'
+2025-07-28 20:07:46,460 - discord.ext.commands.bot - ERROR - Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "mes" is not found
+2025-07-28 20:07:58,787 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-08-01&fecha=lt.2025-09-01&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 20:08:14,182 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-08-04&fecha=lte.2025-08-10&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 20:08:36,290 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-08-11&fecha=lte.2025-08-17&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
+2025-07-28 20:09:04,336 - httpx - INFO - HTTP Request: GET https://xwhbkgkzyirdinbvimlh.supabase.co//rest/v1/eventos?select=%2A&fecha=gte.2025-07-01&fecha=lt.2025-08-01&order=fecha.asc%2Chora.asc "HTTP/2 200 OK"
