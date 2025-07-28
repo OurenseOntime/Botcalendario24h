@@ -273,7 +273,7 @@ async def eliminar_evento(interaction: discord.Interaction, id: int):
         # Ejecutar la eliminación
         delete_response = supabase.table("eventos").delete().eq("id", id).execute()
 
-        if delete_response.status_code != 200:
+        if delete_response.data == []:
             await interaction.response.send_message("❌ Error al eliminar el evento de la base de datos.", ephemeral=True)
             return
 
