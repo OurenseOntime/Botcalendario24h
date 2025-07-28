@@ -11,6 +11,7 @@ from discord.ext import tasks, commands
 from discord import app_commands
 from datetime import datetime, timedelta
 from supabase import create_client, Client
+from zoneinfo import ZoneInfo
 
 
 # Cargar variables de entorno
@@ -326,6 +327,7 @@ async def listar_eventos(interaction: discord.Interaction):
 
         for e in eventos[:10]:  # Limitar a 10 para evitar límite de caracteres
             evento_time = datetime.strptime(f"{e['fecha']} {e['hora']}", "%Y-%m-%d %H:%M:%S")
+            evento_time = evento_time.replace(tzinfo=ZoneInfo("Europe/Madrid"))
             timestamp = int(evento_time.timestamp())
 
             embed.add_field(
@@ -479,7 +481,7 @@ async def mes(interaction: discord.Interaction, numero: int = None):
 @tasks.loop(minutes=1)
 async def resumen_semanal():
     try:
-        ahora = datetime.now()
+        ahora = datetime.now(ZoneInfo("Europe/Madrid"))
         # Diccionario para traducir días de la semana al español
         dias_es = {
             "Monday": "Lunes",
