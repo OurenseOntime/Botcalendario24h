@@ -10,7 +10,7 @@ from keep_alive import keep_alive
 from discord.ext import tasks, commands
 from discord import app_commands
 from datetime import datetime, timedelta
-from supabase import create_client, Clien
+from supabase import create_client, Client
 
 
 # Cargar variables de entorno
